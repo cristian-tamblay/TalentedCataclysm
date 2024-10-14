@@ -254,20 +254,20 @@ function Talented:CreateActionMenu()
 		func = Menu_NewTemplate,
 		arg1 = pclass,
 	}
-	cMenuList[2] = {
-		text = L["Copy from primary talents"],
-		colorCode = menuColorCodes[pclass],
-		notCheckable = true,
-		func = Menu_CloneTemplate,
-		arg1 = 1,
-	}
-	cMenuList[3] = {
-		text = L["Copy from secondary talents"],
-		colorCode = menuColorCodes[pclass],
-		notCheckable = true,
-		func = Menu_CloneTemplate,
-		arg1 = 2,
-	}
+	-- cMenuList[2] = {
+	-- 	text = L["Copy from primary talents"],
+	-- 	colorCode = menuColorCodes[pclass],
+	-- 	notCheckable = true,
+	-- 	func = Menu_CloneTemplate,
+	-- 	arg1 = 1,
+	-- }
+	-- cMenuList[3] = {
+	-- 	text = L["Copy from secondary talents"],
+	-- 	colorCode = menuColorCodes[pclass],
+	-- 	notCheckable = true,
+	-- 	func = Menu_CloneTemplate,
+	-- 	arg1 = 2,
+	-- }
 
 	for _, name in ipairs(list) do
 		local s
@@ -349,7 +349,7 @@ function Talented:MakeActionMenu()
 	local activeTalentGroup = GetActiveTalentGroup()
 	local restricted = (self.template.class ~= select(2, UnitClass("player")))
 	local pet_restricted = not self.GetPetClass or self:GetPetClass() ~= self.template.class
-	self:GetNamedMenu("NewTemplatesClass")[3].disabled = (GetNumTalentGroups() < 2)
+	-- self:GetNamedMenu("NewTemplatesClass")[3].disabled = (GetNumTalentGroups() < 2)
 
 	self:GetNamedMenu("Apply").disabled = restricted and pet_restricted
 	self:GetNamedMenu("Delete").disabled = not self.db.global.templates[self.template.name]
